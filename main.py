@@ -12,7 +12,7 @@ are relative to script directory.
 
 base = ''
 
-testAddr = 'https://github.com/kystyn/cmake_tester.git'
+testAddr = 'https://github.com/Kauter1989/cmake_tester.git'
 baseTestDir = 'test'
 testDir = 'tests'
 testingUtilDir = 'util'
