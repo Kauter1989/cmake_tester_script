@@ -197,7 +197,7 @@ def parseLog(pathToExecutable, logName, passedTestsCnt=-1):
                 curTestRes = False
 
             testRes.update({curTestName: curTestRes})
-        if curTestRes is False and string.find('BAD') != -1:
+        if curTestRes is False and string.upper().find('BAD') != -1:
             ready = foundTests == passedTestsCnt
             nestedException.append(string)
         if ready:
@@ -239,7 +239,7 @@ def genJson(fileName, parseRes):
                 "status": "SUCCESSFUL" if testRes[1] else "FAILED",
                 "failure": {
                     "@class": "org.jetbrains.research.runner.data.UnknownFailureDatum",
-                    "nestedException": parseRes[1][failMsgNum]
+                    "nestedException": parseRes[1][failMsgNum] if len(parseRes[1]) > failMsgNum else "No concrete error mentioned"
                 } if not testRes[1] else None
             }]
         }
